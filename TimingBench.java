@@ -45,15 +45,15 @@ public class TimingBench {
             result = snakeCasePattern.matcher(attrName).replaceAll("$1_$2").toLowerCase();
         }
         long endTime = System.currentTimeMillis();
-        System.out.println(result);
+        System.out.println("Regex: " + result);
         System.out.println(endTime - startTime);
-
+        
         startTime = System.currentTimeMillis();
         for (int i = 0; i < 1000000; i++) {
-			result = toSnakeAndLowerCase(attrName);
+	    	result = toSnakeAndLowerCase(attrName);
         }
         endTime = System.currentTimeMillis();
-        System.out.println(result);
+        System.out.println("Non-regex: " + result);
         System.out.println(endTime - startTime);
 
 		startTime = System.currentTimeMillis();
@@ -61,7 +61,7 @@ public class TimingBench {
             result = toSnakeAndLowerCase2(attrName);
         }
         endTime = System.currentTimeMillis();
-        System.out.println(result);
+        System.out.println("Underscore handling: " + result);
         System.out.println(endTime - startTime);
     }
 }
